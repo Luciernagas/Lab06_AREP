@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"></script>
+  <title>labo6 :)</title>
+</head>
+<body style="font-family: 'Open Sans', sans-serif; background-color: #FFD9EB;">
+<main>
+  <div style="background-color: #ffdbfa; padding: 20px; border-radius: 10px;">
+    <h1 style="font-family: 'Open Sans', sans-serif; color: #FF69B4;">Taller Patrones Arquitecturales :)</h1>
+    <label id="label" for="cadena1" style="color: #FF69B4;">Ingresa una cadena:</label><br>
+    <input id="inputString" type="text" id="cadena1" name="cadena1" value="" style="width: 20%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;"><br><br>
+    <button id="submitButton" onclick="enviarCadena()" style="background-color: #FF69B4; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Submit ♥</button>
+    <div id="respuesta" style="background-color: #FFF; border: solid #ccc; border-width: medium; border-radius: 5px; padding: 2%; margin-top: 20px;">
+      <ul id="ultimasPalabras"></ul>
+    </div>
+  </div>
+</main>
+<script>
+  let enviarCadena = () =>{
+    var cadenaIngresada = document.getElementById("inputString").value;
+    fetch("/addstring/" + cadenaIngresada).then(res => res.json())
+            .then((res) => {
+              let divRespuesta = document.getElementById("respuesta");
+              let ultimasPalabras = document.getElementById("ultimasPalabras");
+              ultimasPalabras.innerHTML = "";
+              res.forEach(item => {
+                let lista = document.createElement("div");
+                lista.style.marginBottom = "10px";
+                lista.innerText = `${item.cadena} - ${item.fecha}`;
+                ultimasPalabras.appendChild(lista);
+              });
+            })
+  }
+</script>
+</body>
+</html>
