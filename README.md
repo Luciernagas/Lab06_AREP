@@ -73,6 +73,10 @@ Esta se encuentra representada por la clase MongoDBClient, la cual es responsabl
 El código de la base de datos se encuentra separado del resto de la aplicación, lo que facilita cambios en la base de datos en el futuro sin afectar otras partes del proyecto.
 
 * * *
+#### AWS
+![image](https://github.com/Luciernagas/Lab06_AREP/assets/104604359/aac94cad-f049-492d-8066-00447a1f6ea0)
+
+* * *
 ### Construido con
 * Maven - Gestión de dependencias
 * Java - Lenguaje de programación
